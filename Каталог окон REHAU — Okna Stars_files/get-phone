@@ -1,0 +1,1 @@
+window.roistatReusePhone("8 (499) 877-58-82", 150, null, "[{\"phone\":\"8 (499) 877-58-82\",\"css_selectors\":[\".header-contacts__tel\",\".footer-contacts__linkfooter-contacts__link-tel\",\".footer-tel\",\".h-contacts__link-tel.h-contacts__text\"],\"replaceable_numbers\":[\"74993438005\"]}]");

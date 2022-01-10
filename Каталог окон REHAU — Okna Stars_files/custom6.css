@@ -1,0 +1,83 @@
+.banner-head__img.img-bg-abs:after {background-color: rgba(0, 0, 0, .5)!important;}  
+
+@media screen and (max-width: 767px) {
+	.home-slider-rehau-wrap__title {
+		background-image: url(https://www.oknastars.ru/wp-content/uploads/about-text.jpg) !important;
+		background-attachment: inherit;
+	}
+	.about-title-wrapper {
+		display: flex;
+	}
+}
+@media screen and (max-width: 767px) {
+	.about-title__big {
+	    font-size: 152px;
+	    margin-top: -80px;
+	    letter-spacing: -7px;
+	}
+}
+
+
+.windows-categories .jalousie-category-item__price {
+    margin-bottom: 50px;
+}
+
+.category-cont__price-wrap {
+    margin-top: 0px;
+}
+button.btn.btn-calc {
+    position: absolute;
+    width: auto;
+    right: 0;
+    top: 50px;
+}
+@media screen and (max-width: 767px) {
+	button.btn.btn-calc {
+		top: 15px;
+	}
+}
+.banner-head-cont-wrap {
+	position: relative;
+}
+.jalousie-categories__item--full-width .jalousie-category-item__title {
+    max-width: -webkit-fit-content;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    display: inline-block;
+}
+
+@media screen and (min-width: 1199px) {
+	.windows-content .jalousie-categories__item {
+	    height: 566px;
+	}
+}
+.loading, .verandas-content .jalousie-category-item {
+    pointer-events: auto;
+}
+.white-text {
+	color: #fff;
+}
+.img-texts {
+	width: 100%;
+}
+h1.review-item__title.review-title {
+    font-size: 34px;
+    line-height: 40px;
+}
+.review-one-img img {
+	width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+	.reviews-list-one .slider-windows {
+	    display: flex;
+	    flex-wrap: wrap;
+	}
+}
+
+@media screen and (min-width: 1199px) {
+	.menu-catalog .sub-menu, .menu-pages .sub-menu {
+	    height: auto;
+	    overflow: hidden;
+	}
+}

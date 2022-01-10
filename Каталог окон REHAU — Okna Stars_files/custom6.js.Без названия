@@ -1,0 +1,116 @@
+
+// jQuery(document).on("ready", function() {
+    // import sliderPrices from "./js/sliderPrices";
+    jQuery.ajax({
+        url: "https://www.oknastars.ru/wp-content/themes/strangebrain/partials/global/global-section-reviews-ajax.php",
+        cache: false,
+        success: function(data){
+            jQuery("#reviews-block").html(data);
+        },
+        error: function(data){
+            jQuery("#reviews-block").html('Ошибка загрузки');
+        }
+    });
+    // new sliderPrices(
+    //     '.js-reviews-carousel',
+    //     '.js-slider-prev',
+    //     '.js-slider-next',
+    //     false,
+    //     false,
+    //     false,
+    //     false,
+    //     false,
+    //     null,
+    //     'left',
+    //     null
+    // );
+// });
+window.onload = function(){
+  jQuery(".show__pdf__fancy").fancybox({
+  // openEffect: 'elastic',
+  //        closeEffect: 'elastic',
+  //        autoSize: true,
+  //        type: 'iframe',
+  //        iframe: {
+  //            preload: false // fixes issue with iframe and IE
+  //        }
+
+  buttons: [
+        "close"
+    ],
+    loop: true,
+    wheel: false,
+    afterShow: function() {
+        $('.fancybox-content').removeClass('download zoom');
+        var elem = $('.fancybox-slide--current').find('.fancybox-content');
+        h = elem.height();
+        w = elem.width();
+        t = elem.css('transform');
+        elem.addClass('download');
+        //elem.find('img').preventDefault();
+    },
+    clickContent: function(current, event) {
+        var el = $(current.$content);
+        if(el.hasClass('download')) {
+            if(el.hasClass('zoom')) {
+                el.removeClass('zoom');
+                //el.animate({height: h, width: w}, 500);
+                el.css('height', h);
+                el.css('width', w);
+                el.css('transform', t);
+            } else {
+                el.addClass('zoom');
+                var wn = document.body.clientWidth;
+                var hn = h * wn / w;
+                var tn = 'matrix(1, 0, 0, 1, 0, 0)';
+                //el.animate({height: hn, width: wn}, 500);
+                el.css('height', hn);
+                el.css('width', wn);
+                el.css('transform', tn);
+            }
+        }
+    },
+  });
+// принудительно запускаю слайдер для отзывов
+    if (!jQuery('.js-reviews-carousel').hasClass('flickity-enabled')){
+      setTimeout(() => {
+         jQuery('.reviews-carousel').flickity({
+          // options
+          cellAlign: 'left',
+          contain: true,
+          prevNextButtons: false,
+          pageDots:false,
+        });
+
+        jQuery('.slider-reviews-nav .js-slider-prev').on( 'click', function() {
+          jQuery('.reviews-carousel').flickity('previous');
+        });
+
+        jQuery('.slider-reviews-nav .js-slider-next').on( 'click', function() {
+          jQuery('.reviews-carousel').flickity('next');
+        });
+      }, 1000);
+
+    }
+    // jQuery('.js-slider-features-prev').on( 'click', function() {
+    //   jQuery('.js-carousel-features').flickity('previous');
+    //   console.log('prev')
+    // });
+    //
+    // jQuery('.js-slider-features-next').on( 'click', function() {
+    //   jQuery('.js-carousel-features').flickity('next');
+    //    console.log('next')
+    // });
+  jQuery(' .show_img_popup').on('click',function() {
+      jQuery('.overlay').fadeIn();
+      jQuery(this).next('.img_popup').clone().appendTo('.modal_for_review');
+      jQuery('.modal_for_review').fadeIn('slow');
+  })
+  jQuery('.overlay,.modal_for_review').on('click',function() {
+
+         jQuery('.modal_for_review').fadeOut();
+      jQuery('.overlay').fadeOut();
+      jQuery('.modal_for_review').find('.img_popup').remove();
+
+  })
+}
